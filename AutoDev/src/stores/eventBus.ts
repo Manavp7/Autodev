@@ -57,9 +57,11 @@ export const useEventBus = create<BusState>((set, get) => ({
 // ----- Imperative subscribe (for non-React callers) -----
 type Listener = (e: DomainEvent) => void
 const listeners = new Set<Listener>()
-export function subscribe(fn: Listener) {
+export function subscribe(fn: Listener): () => void {
   listeners.add(fn)
-  return () => listeners.delete(fn)
+  return () => {
+    listeners.delete(fn)
+  }
 }
 
 // ----- React hook: run handler whenever event of given type is emitted -----
