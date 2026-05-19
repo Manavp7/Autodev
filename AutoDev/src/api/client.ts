@@ -49,9 +49,9 @@ const db: {
   users: [...seedUsers],
 }
 
-const json = (body: unknown) => [200, body] as const
-const created = (body: unknown) => [201, body] as const
-const notFound = () => [404, { error: 'not found' }] as const
+const json = (body: unknown): [number, unknown] => [200, body]
+const created = (body: unknown): [number, unknown] => [201, body]
+const notFound = (): [number, unknown] => [404, { error: 'not found' }]
 const uid = (prefix: string) =>
   `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 5)}`
 
