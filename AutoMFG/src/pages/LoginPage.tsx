@@ -36,56 +36,58 @@ export function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-navy-900 flex items-center justify-center p-4 relative overflow-hidden mfg-theme">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(46,125,50,0.15)_0%,transparent_70%)] pointer-events-none" />
+    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 mfg-theme font-sans">
+      <div className="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[2rem] shadow-2xl overflow-hidden relative z-10 border border-slate-200/60">
+        {/* Left panel (Brand/Dark) */}
+        <div className="p-12 hidden lg:flex flex-col justify-between bg-slate-900 relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(46,125,50,0.25),transparent_70%)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(46,125,50,0.15),transparent_50%)] pointer-events-none" />
 
-      <div className="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-surface/30 backdrop-blur-2xl border border-white/5 rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
-        <div className="hidden lg:flex flex-col justify-between p-12 bg-gradient-to-br from-accent/10 to-transparent border-r border-white/5 relative overflow-hidden">
           <div className="relative z-10">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent to-forest-700 flex items-center justify-center shadow-lg shadow-accent/20">
+            <div className="flex items-center gap-3 mb-16">
+              <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center shadow-lg shadow-accent/20">
                 <LayoutGrid className="w-7 h-7 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="font-black text-3xl tracking-tighter text-white leading-none">
+                <span className="font-black text-2xl tracking-tight text-white leading-none">
                   Auto<span className="text-accent">MFG</span>
                 </span>
-                <span className="text-xs font-bold text-white/70 uppercase tracking-[0.2em] mt-1">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">
                   Enterprise Control
                 </span>
               </div>
             </div>
 
-            <h1 className="text-4xl font-black text-white leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-4xl font-black text-white leading-[1.15] tracking-tight mb-6">
               Next-Generation
               <br />
               Manufacturing Execution.
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed mb-12 max-w-md">
+            <p className="text-slate-400 text-lg leading-relaxed mb-12 max-w-md">
               Unify your shop floor with real-time OEE, reactive Andon management, and complete product traceability.
             </p>
 
             <div className="space-y-4">
-              <div className="glass p-5 rounded-2xl border-white/5 bg-white/5">
-                <div className="flex items-center gap-4 mb-2">
+              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 rounded-lg bg-accent/20 text-accent">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-white">Shift-Based RBAC</h3>
                 </div>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-400 leading-relaxed">
                   Strict role enforcement for Plant Managers, Shift Leads, and Operators.
                 </p>
               </div>
 
-              <div className="glass p-5 rounded-2xl border-white/5 bg-white/5">
-                <div className="flex items-center gap-4 mb-2">
+              <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <div className="flex items-center gap-3 mb-2">
                   <div className="p-2 rounded-lg bg-success/20 text-success">
                     <Activity className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-white">Full Traceability</h3>
                 </div>
-                <p className="text-sm text-white/70">
+                <p className="text-sm text-slate-400 leading-relaxed">
                   Track every component and quality event per VIN from start to EOL.
                 </p>
               </div>
@@ -93,45 +95,46 @@ export function LoginPage() {
           </div>
         </div>
 
-        <div className="p-8 lg:p-16 flex flex-col justify-center relative">
-          <div className="w-full max-w-sm mx-auto">
-            <div className="mb-10 text-center lg:text-left">
-              <h2 className="text-2xl font-black text-white tracking-tight mb-2">Secure Access</h2>
-              <p className="text-white/70 text-sm">Enter your credentials to authenticate.</p>
+        {/* Right panel (Light/Form) */}
+        <div className="p-8 lg:p-16 flex flex-col justify-center bg-white">
+          <div className="max-w-[380px] mx-auto w-full">
+            <div className="mb-10">
+              <h2 className="text-3xl font-black text-slate-900 tracking-tight mb-2">Secure Access</h2>
+              <p className="text-slate-500 text-sm">Enter your credentials to authenticate.</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-5" noValidate>
-              <div className="space-y-1.5">
-                <label htmlFor="username" className="text-xs font-bold text-white/70 uppercase tracking-widest">
+              <div className="space-y-2">
+                <label htmlFor="username" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                   Username
                 </label>
-                <div className="relative">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
+                <div className="relative group">
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-accent transition-colors" />
                   <input
                     id="username"
                     type="text"
                     autoComplete="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder-text-secondary/40 focus:outline-none focus:border-accent transition-all focus:bg-white/10"
+                    className="w-full h-12 bg-white border border-slate-200 rounded-xl pl-11 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition-all"
                     placeholder="Enter your username"
                   />
                 </div>
               </div>
 
-              <div className="space-y-1.5">
-                <label htmlFor="password" className="text-xs font-bold text-white/70 uppercase tracking-widest">
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-xs font-bold text-slate-700 uppercase tracking-wider">
                   Password
                 </label>
-                <div className="relative">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/70" />
+                <div className="relative group">
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-accent transition-colors" />
                   <input
                     id="password"
                     type="password"
                     autoComplete="current-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-3 text-white placeholder-text-secondary/40 focus:outline-none focus:border-accent transition-all focus:bg-white/10"
+                    className="w-full h-12 bg-white border border-slate-200 rounded-xl pl-11 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-4 focus:ring-accent/10 transition-all"
                     placeholder="Enter your password"
                   />
                 </div>
@@ -146,7 +149,7 @@ export function LoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-accent hover:bg-accent/90 text-white rounded-xl py-3.5 font-bold transition-all shadow-[0_0_20px_rgb(var(--accent)/0.3)] hover:shadow-[0_0_30px_rgb(var(--accent)/0.5)] flex items-center justify-center gap-2 mt-4 disabled:opacity-50 disabled:cursor-not-allowed group"
+                className="w-full h-12 bg-accent hover:bg-accent/90 text-white rounded-xl font-bold transition-all shadow-lg shadow-accent/25 flex items-center justify-center gap-2 mt-6 disabled:opacity-50 disabled:cursor-not-allowed group active:scale-[0.98]"
               >
                 {isLoading ? 'Authenticating...' : 'Sign In'}
                 {!isLoading && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
@@ -154,12 +157,12 @@ export function LoginPage() {
             </form>
 
             {import.meta.env.DEV && (
-              <div className="mt-12 p-5 rounded-2xl bg-white/5 border border-white/10">
-                <p className="text-xs font-bold text-white/70 uppercase tracking-widest mb-3 flex items-center gap-2">
+              <div className="mt-12 p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-accent" />
                   Demo accounts
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   {[
                     { label: 'Plant Manager', user: 'plantmgr' },
                     { label: 'Production Manager', user: 'manager' },
@@ -167,15 +170,17 @@ export function LoginPage() {
                     { label: 'Line Leader', user: 'leader' },
                     { label: 'Operator', user: 'operator' },
                   ].map((row) => (
-                    <div key={row.user} className="flex justify-between items-center text-sm p-2 rounded bg-white/5">
-                      <span className="text-white/70">{row.label}</span>
-                      <span className="font-mono text-accent font-bold">{row.user}</span>
+                    <div key={row.user} className="flex justify-between items-center text-xs">
+                      <span className="text-slate-600 font-medium">{row.label}</span>
+                      <span className="font-mono text-slate-900 font-bold">{row.user}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-[10px] text-white/70 mt-3 text-center opacity-70">
-                  Password for all accounts: <strong className="text-white font-mono">123</strong>
-                </p>
+                <div className="mt-4 pt-3 border-t border-slate-200">
+                  <p className="text-[10px] text-slate-500 text-center">
+                    Password for all accounts: <strong className="text-slate-900 font-mono text-xs">123</strong>
+                  </p>
+                </div>
               </div>
             )}
           </div>
