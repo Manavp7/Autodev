@@ -1,0 +1,90 @@
+@import './styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    background-color: rgb(var(--primary-bg));
+    color: rgb(var(--text-primary));
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+  }
+  #root { height: 100%; }
+
+  :where(input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea) {
+    background-color: rgb(var(--surface));
+    border: 1px solid rgb(var(--border-dark));
+    color: rgb(var(--text-primary));
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    transition: all 200ms ease;
+  }
+  :where(input[type="text"], input[type="password"], input[type="email"], input[type="number"], select, textarea):focus {
+    border-color: rgb(var(--accent));
+    box-shadow: 0 0 0 2px rgb(var(--accent) / 0.18);
+    outline: none;
+  }
+  :where(input, textarea)::placeholder {
+    color: rgb(var(--text-secondary));
+    opacity: 0.6;
+  }
+
+  button { cursor: pointer; }
+  button, input, select, textarea {
+    @apply focus:outline-none transition-all duration-200;
+  }
+  td { vertical-align: middle; }
+
+  ::-webkit-scrollbar { height: 8px; width: 8px; }
+  ::-webkit-scrollbar-track { background: rgb(var(--primary-bg)); }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--border-dark)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgb(var(--text-secondary)); }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-surface border border-border-dark rounded-xl shadow-card;
+  }
+
+  .flex-center { @apply flex items-center justify-center; }
+  .flex-between { @apply flex items-center justify-between; }
+
+  .glass {
+    background-color: rgb(var(--surface) / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--border-dark));
+  }
+  .glass-hover {
+    background-color: rgb(var(--surface) / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--border-dark));
+    transition: all 300ms ease;
+  }
+  .glass-hover:hover {
+    border-color: rgb(var(--accent) / 0.5);
+    box-shadow: 0 0 15px rgb(var(--accent) / 0.15);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ----- Legacy compat: pages still using bg-red-50 / text-red-600 etc. ----- */
+.bg-red-50    { background-color: rgb(var(--danger) / 0.10) !important; }
+.bg-green-50  { background-color: rgb(var(--success) / 0.10) !important; }
+.bg-amber-50,
+.bg-yellow-50 { background-color: rgb(var(--warning) / 0.10) !important; }
+.bg-blue-50   { background-color: rgb(var(--accent) / 0.10) !important; }
+.text-green-600 { color: rgb(var(--success)) !important; }
+.text-red-600,
+.text-red-500   { color: rgb(var(--danger)) !important; }
+.text-amber-600,
+.text-amber-500 { color: rgb(var(--warning)) !important; }
+.text-blue-600,
+.text-blue-500  { color: rgb(var(--accent)) !important; }

@@ -1,0 +1,50 @@
+@import './styles/theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: rgb(var(--primary-bg));
+    color: rgb(var(--text-primary));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button, input, select, textarea {
+    @apply focus:outline-none transition-all duration-200;
+  }
+
+  button { cursor: pointer; @apply active:scale-95; }
+  td { vertical-align: middle; }
+}
+
+@layer utilities {
+  .flex-center { @apply flex items-center justify-center; }
+  .flex-between { @apply flex items-center justify-between; }
+
+  .glass {
+    background-color: rgb(var(--surface) / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--border-dark));
+  }
+  .glass-hover {
+    background-color: rgb(var(--surface) / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--border-dark));
+    transition: all 300ms ease;
+  }
+  .glass-hover:hover {
+    border-color: rgb(var(--accent) / 0.5);
+    box-shadow: 0 0 15px rgb(var(--accent) / 0.15);
+  }
+}
+
+::-webkit-scrollbar { height: 8px; width: 8px; }
+::-webkit-scrollbar-track { background: rgb(var(--primary-bg)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--border-dark)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--text-secondary)); }
