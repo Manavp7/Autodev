@@ -65,7 +65,7 @@ export default function LoginPage() {
                 <span className="font-black text-2xl tracking-tighter text-white leading-none">
                   Auto<span className="text-accent">Dev</span>
                 </span>
-                <span className="text-[10px] font-bold text-text-secondary uppercase tracking-[0.2em] mt-1">
+                <span className="text-[10px] font-bold text-white/70 uppercase tracking-[0.2em] mt-1">
                   Auto-Suite Platform v1.0
                 </span>
               </div>
@@ -75,7 +75,7 @@ export default function LoginPage() {
               <br />
               <span className="text-accent">development lifecycle.</span>
             </h1>
-            <p className="text-text-secondary text-lg leading-relaxed max-w-md">
+            <p className="text-white/70 text-lg leading-relaxed max-w-md">
               Gate-based APQP workflows, real-time BOM traceability, DVP&amp;R test management,
               and ISO 26262 compliance — in one platform.
             </p>
@@ -84,12 +84,12 @@ export default function LoginPage() {
             <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
               <ShieldCheck className="w-6 h-6 text-accent mb-2" />
               <p className="text-white font-bold text-sm">Gate-based APQP</p>
-              <p className="text-text-secondary text-xs mt-1">Quality ensured at every stage.</p>
+              <p className="text-white/70 text-xs mt-1">Quality ensured at every stage.</p>
             </div>
             <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
               <Zap className="w-6 h-6 text-accent mb-2" />
               <p className="text-white font-bold text-sm">Real-time traceability</p>
-              <p className="text-text-secondary text-xs mt-1">Components, requirements, tests — linked.</p>
+              <p className="text-white/70 text-xs mt-1">Components, requirements, tests — linked.</p>
             </div>
           </div>
         </div>
@@ -99,16 +99,16 @@ export default function LoginPage() {
           <div className="max-w-[360px] mx-auto w-full">
             <div className="mb-8">
               <h2 className="text-3xl font-black text-white tracking-tight">Welcome back.</h2>
-              <p className="text-text-secondary mt-2">Sign in to access your dashboard.</p>
+              <p className="text-white/70 mt-2">Sign in to access your dashboard.</p>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
               <div className="space-y-1.5">
-                <label htmlFor="username" className="text-xs font-bold text-text-secondary uppercase tracking-wider ml-1">
+                <label htmlFor="username" className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">
                   Username or email
                 </label>
                 <div className="relative group">
-                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary group-focus-within:text-accent transition-colors" />
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 group-focus-within:text-accent transition-colors" />
                   <input
                     id="username"
                     type="text"
@@ -125,11 +125,11 @@ export default function LoginPage() {
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="password" className="text-xs font-bold text-text-secondary uppercase tracking-wider ml-1">
+                <label htmlFor="password" className="text-xs font-bold text-white/70 uppercase tracking-wider ml-1">
                   Password
                 </label>
                 <div className="relative group">
-                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary group-focus-within:text-accent transition-colors" />
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/50 group-focus-within:text-accent transition-colors" />
                   <input
                     id="password"
                     type="password"
